@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 // Server path
-const url = 'mongodb://localhost:27017/UserDB';
+const url = 'mongodb://172.22.0.2:27017/UserDB'; 
  
 const UserModel = require("./models/User");
 
@@ -16,7 +16,7 @@ mongoose.connect(url, {useNewUrlParser: true},(err,client)=>{
         console.log("successful connection with the server");  
     }
     else
-        console.log("Error in the connectivity");
+        console.log(err);
 });
 
 app.post('/insert',async(req,res) => {
